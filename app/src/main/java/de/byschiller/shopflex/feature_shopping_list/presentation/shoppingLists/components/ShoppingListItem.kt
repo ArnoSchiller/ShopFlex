@@ -24,8 +24,7 @@ fun ShoppingListItem(
     modifier: Modifier
 ) {
     ElevatedCard(
-        modifier = Modifier
-            .fillMaxWidth()
+        modifier = modifier
             .padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
         Column(
@@ -83,7 +82,8 @@ fun ShoppingListItem_Preview() {
             name = "Liste",
             description = "",
             category = ShoppingListCategory.BlueCategory,
-            createdTimestamp = System.currentTimeMillis()
+            createdTimestamp = System.currentTimeMillis(),
+            listElements = emptyList()
         ),
         modifier = Modifier.width(200.dp)
     )

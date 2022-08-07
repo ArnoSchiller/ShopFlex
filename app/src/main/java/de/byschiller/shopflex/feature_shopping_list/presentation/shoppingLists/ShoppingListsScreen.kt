@@ -1,5 +1,6 @@
 package de.byschiller.shopflex.feature_shopping_list.presentation.shoppingLists
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,9 +18,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import de.byschiller.shopflex.R
 import de.byschiller.shopflex.feature_shopping_list.domain.model.ShoppingList
 import de.byschiller.shopflex.feature_shopping_list.domain.model.ShoppingListCategory
+import de.byschiller.shopflex.feature_shopping_list.navigation.ListNavRoutes
 import de.byschiller.shopflex.feature_shopping_list.presentation.shoppingLists.components.ShoppingListItem
 import de.byschiller.shopflex.navigation.BottomNavBar
 
@@ -44,7 +48,8 @@ fun ShoppingListsScreen(
                                 name = "Name einer Testliste (${state.shoppingLists.count()})",
                                 description = "hier ist nichts drin, lol",
                                 category = ShoppingListCategory.MagentaCategory,
-                                createdTimestamp = System.currentTimeMillis()
+                                createdTimestamp = System.currentTimeMillis(),
+                                listElements = emptyList()
                             )
                         )
                     )
@@ -107,13 +112,10 @@ fun ShoppingListsScreen(
                         list = list,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable {
-                                /*
+                            .clickable(enabled = true) {
                                 navController.navigate(
-                                    Screen.AddEditNoteScreen.route +
-                                            "?noteId=${note.id}&noteColor=${note.color}"
-                                    )
-                                 */
+                                    route = ListNavRoutes.ManageList.route + "?listId=${list.id}"
+                                )
                             }
                         /*
                         ,

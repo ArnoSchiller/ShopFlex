@@ -7,7 +7,8 @@ data class ShoppingList(
     val name: String,
     val description: String,
     val category: ShoppingListCategory,
-    val createdTimestamp: Long
+    val createdTimestamp: Long,
+    val listElements: List<ListElement>
 )
 
 

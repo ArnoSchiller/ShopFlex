@@ -20,7 +20,8 @@ data class ShoppingListDTO(
             name = name,
             description = description,
             category = ShoppingListCategory.values().first { it.id == category },
-            createdTimestamp = createdTimestamp
+            createdTimestamp = createdTimestamp,
+            listElements = emptyList()
         )
     }
 

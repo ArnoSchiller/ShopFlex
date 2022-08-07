@@ -8,4 +8,5 @@
     <string name="shopping_lists_title">Shopping Lists</string>
     <string name="shopping_list_title">Shopping List</string>
     <string name="your_lists">Your Lists</string>
+    <string name="manage_list_title">Manage List</string>
 </resources>
